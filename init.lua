@@ -1,67 +1,67 @@
 -- Marble
 minetest.register_node("greeknodes:marble_cobble", {
 	description = "Marble Cobble",
-	tiles = {"marble_cobble.png"},
-	groups = {cracky=3},
+	tiles = {"greeknodes_marble_cobble.png"},
+	groups = {cracky = 3},
 	sounds = default.node_sound_stone_defaults(),
 })
 
 minetest.register_node("greeknodes:polished_marble", {
 	description = "Polished Marble",
-	tiles = {"marble_polished.png"},
-	groups = {cracky=3},
+	tiles = {"greeknodes_marble_polished.png"},
+	groups = {cracky = 3},
 	sounds = default.node_sound_stone_defaults(),
 })
 
 minetest.register_node("greeknodes:polished_marble_block", {
 	description = "Polished Marble Block",
-	tiles = {"marble_polished_block.png"},
-	groups = {cracky=3},
+	tiles = {"greeknodes_marble_polished_block.png"},
+	groups = {cracky = 3},
 	sounds = default.node_sound_stone_defaults(),
 })
 
 minetest.register_node("greeknodes:pillar", {
 	description = "Marble Pillar",
 	paramtype2 = "facedir",
-	tiles = {"marble_pillar_top.png", "marble_pillar_top.png", "marble_pillar_side.png"},
-	groups = {cracky=3},
+	tiles = {"greeknodes_marble_pillar_top.png", "greeknodes_marble_pillar_top.png", "greeknodes_marble_pillar_side.png"},
+	groups = {cracky = 3},
 	sounds = default.node_sound_stone_defaults(),
 	on_place = minetest.rotate_node
 })
 
 minetest.register_node("greeknodes:pillar_head_dioric", {
 	description = "Marble Pillar Head (Dioric)",
-	tiles = {"marble_pillar_top.png", "marble_pillar_top.png", "marble_pillar_head_dioric.png"},
-	groups = {cracky=3},
+	tiles = {"greeknodes_marble_pillar_top.png", "greeknodes_marble_pillar_top.png", "greeknodes_marble_pillar_head_dioric.png"},
+	groups = {cracky = 3},
 	sounds = default.node_sound_stone_defaults(),
 })
 
 minetest.register_node("greeknodes:pillar_head_corinthian", {
 	description = "Marble Pillar Head (Corinthian)",
-	tiles = {"marble_pillar_top.png", "marble_pillar_top.png", "marble_pillar_head_corinthian.png"},
-	groups = {cracky=3},
+	tiles = {"greeknodes_marble_pillar_top.png", "greeknodes_marble_pillar_top.png", "greeknodes_marble_pillar_head_corinthian.png"},
+	groups = {cracky = 3},
 	sounds = default.node_sound_stone_defaults(),
 })
 
 minetest.register_node("greeknodes:pillar_head_ionic", {
 	description = "Marble Pillar Head (Ionic)",
 	paramtype2 = "facedir",
-	tiles = {"marble_pillar_top.png", "marble_pillar_top.png", "marble_pillar_head_ionic_side.png", "marble_pillar_head_ionic_side.png", "marble_pillar_head_ionic.png", "marble_pillar_head_ionic.png"},
-	groups = {cracky=3},
+	tiles = {"greeknodes_marble_pillar_top.png", "greeknodes_marble_pillar_top.png", "greeknodes_marble_pillar_head_ionic_side.png", "greeknodes_marble_pillar_head_ionic_side.png", "greeknodes_marble_pillar_head_ionic.png", "greeknodes_marble_pillar_head_ionic.png"},
+	groups = {cracky = 3},
 	sounds = default.node_sound_stone_defaults(),
 })
 
 minetest.register_node("greeknodes:marble_tile", {
 	description = "Marble Tile",
-	tiles = {"marble_tile.png"},
-	groups = {cracky=3},
+	tiles = {"greeknodes_marble_tile.png"},
+	groups = {cracky = 3},
 	sounds = default.node_sound_stone_defaults(),
 })
 
 minetest.register_node("greeknodes:gilded_gold_block", {
 	description = "Gilded Gold Block",
-	tiles = {"gilded_gold.png"},
-	groups = {cracky=3, oddly_breakable_by_hand=1},
+	tiles = {"greeknodes_gilded_gold.png"},
+	groups = {cracky = 3, oddly_breakable_by_hand = 1},
 	sounds = default.node_sound_metal_defaults(),
 })
 
@@ -70,7 +70,7 @@ stairs.register_stair_and_slab(
 	"marblepillar_stair",
 	"greeknodes:pillar",
 	{cracky = 3},
-	{"marble_pillar_top.png", "marble_pillar_top.png", "marble_pillar_side.png"},
+	{"greeknodes_marble_pillar_top.png", "greeknodes_marble_pillar_top.png", "greeknodes_marble_pillar_side.png"},
 	"Marble Pillar Stair",
 	"Marble Pillar Slab",
 	default.node_sound_stone_defaults()
@@ -80,7 +80,7 @@ stairs.register_stair_and_slab(
 	"marblecobble_stair",
 	"greeknodes:marble_cobble",
 	{cracky = 3},
-	{"marble_cobble.png"},
+	{"greeknodes_marble_cobble.png"},
 	"Marble Cobble Stair",
 	"Marble Cobble Slab",
 	default.node_sound_stone_defaults()
@@ -90,7 +90,7 @@ stairs.register_stair_and_slab(
 	"polishedmarble_stair",
 	"greeknodes:polished_marble",
 	{cracky = 3},
-	{"marble_polished.png"},
+	{"greeknodes_marble_polished.png"},
 	"Polished Marble Stair",
 	"Polished Marble Slab",
 	default.node_sound_stone_defaults()
@@ -100,7 +100,7 @@ stairs.register_stair_and_slab(
 	"polishedmarbleblock_stair",
 	"greeknodes:polished_marble_block",
 	{cracky = 3},
-	{"marble_polished_block.png"},
+	{"greeknodes_marble_polished_block.png"},
 	"Polished Marble Block Stair",
 	"Polished Marble Block Slab",
 	default.node_sound_stone_defaults()
@@ -110,7 +110,7 @@ stairs.register_stair_and_slab(
 	"marbletile_stair",
 	"greeknodes:marble_tile",
 	{cracky = 3},
-	{"marble_tile.png"},
+	{"greeknodes_marble_tile.png"},
 	"Marble Tile Stair",
 	"Marble Tile Slab",
 	default.node_sound_stone_defaults()
@@ -120,7 +120,7 @@ stairs.register_stair_and_slab(
 	"gilded_gold_stair",
 	"greeknodes:gilded_gold_block",
 	{cracky = 3},
-	{"gilded_gold.png"},
+	{"greeknodes_gilded_gold.png"},
 	"Gilded Gold Block Stair",
 	"Gilded Gold Block Slab",
 	default.node_sound_metal_defaults()
@@ -208,9 +208,9 @@ if minetest.get_modpath("homedecor") then
 else
 	minetest.register_node("greeknodes:marble", {
 		description = "Marble",
-		tiles = {"marble.png"},
+		tiles = {"greeknodes_marble.png"},
 		is_ground_content = true,
-		groups = {cracky=3, marble = 1},
+		groups = {cracky = 3, marble = 1},
 		sounds = default.node_sound_stone_defaults(),
 	})
 
@@ -236,7 +236,7 @@ else
 
 	minetest.register_craftitem("greeknodes:tar_base", {
 		description = "Tar Base",
-		image = "tar_base.png",
+		image = "greeknodes_tar_base.png",
 	})
 
 	minetest.register_craft({
@@ -250,9 +250,9 @@ else
 
 	minetest.register_node("greeknodes:tar", {
 		description = "Tar",
-		tiles = {"tar_block.png"},
+		tiles = {"greeknodes_tar_block.png"},
 		is_ground_content = true,
-		groups = {crumbly=1, tar_block = 1},
+		groups = {crumbly = 1, tar_block = 1},
 		sounds = default.node_sound_stone_defaults(),
 	})
 
