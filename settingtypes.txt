@@ -1,0 +1,40 @@
+#    Comma-separated list of items that can be used as marble.
+#    Order this list by priority (descending) for greeknodes marble aliasing.
+greek.marble (Marble item list) string building_blocks:Marble,darkage:marble,technic:marble
+
+#    Comma-separated list of items that can be used as limestone for cement-making.
+greek.limestone (Limestone item list) string default:silver_sandstone,darkage:chalk
+
+#    Comma-separated list of items that can be used as gold blocks for gilded gold.
+greek.gold_block (Gold Block item list) string default:goldblock
+
+#    Comma-separated list of items that can be used as red clay.
+#    Removing greek:red_clay will prevent it from being registered.
+greek.red_clay (Red Clay item list) string greek:red_clay
+
+#    Comma-separated list of items that can be used as clay lumps.
+#    This setting is ignored if greek:red_clay is removed from the red clay item list.
+greek.clay_lump (Clay Lump item list) string default:clay_lump
+
+#    Comma-separated list of items that can be used in place of blue wood.
+#    Removing greek:blue_wood will prevent it from being registered.
+greek.blue_wood (Blue Wood item list) string greek:blue_wood
+
+#    Comma-separated list of items that can be used as door locks.
+#    Will be used to craft locked doors.
+greek.door_lock (Door lock item list) string default:steel_ingot,basic_materials:padlock
+
+#    Maximum amount of items vases can hold.
+greek.vase_max (Maximum Vase capacity) int 10
+
+#    Determines whether the fire bowl will drop a lit or unlit version.
+greek.fire_bowl_dig_snuff (Snuff Fire Bowl on dig) bool false
+
+#    Enables compatibility with legacy greeknodes mod.
+#    Marble will be aliased to the first valid node found in the greek.marble setting.
+greek.greeknodes_aliases (Register greeknodes aliases) bool true
+
+#    Convert greeknodes:marble to greek:marble_polished instead of marble from another mod.
+greek.alias_polished_marble (Alias old marble to polished marble) bool false
+
+# TODO: Configurable sounds
