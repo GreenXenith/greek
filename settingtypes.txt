@@ -40,4 +40,7 @@ greek.greeknodes_aliases (Register greeknodes aliases) bool true
 #    Convert greeknodes:marble to greek:marble_polished instead of marble from another mod.
 greek.alias_polished_marble (Alias old marble to polished marble) bool false
 
+#    Convert greeknodes:tar_base and greeknode:tar to building_blocks equivalents.
+greek.alias_tar (Alias old tar to building_blocks) bool true
+
 # TODO: Configurable sounds

@@ -44,5 +44,6 @@ else
     end)
 end
 
-minetest.register_alias("greeknodes:tar_base", "")
-minetest.register_alias("greeknodes:tar", "")
+local alias_tar = greek.settings_get("alias_tar")
+minetest.register_alias("greeknodes:tar_base", alias_tar and "building_blocks:tar_base" or "")
+minetest.register_alias("greeknodes:tar", alias_tar and "building_blocks:Tar" or "")

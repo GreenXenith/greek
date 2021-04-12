@@ -47,6 +47,7 @@ Other settings:
 * Snuff fire bowls on dig
 * Enable `greeknodes` aliases
 * Alias `greeknodes` marble to polished marble
+* Alias `greeknodes` tar to building_blocks equivalents
 
 See [settingtypes.txt](settingtypes.txt) for defaults.  
 
