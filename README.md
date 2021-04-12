@@ -86,6 +86,7 @@ As crafting large amounts of certain variants can be tedious, variants can be co
 ## Todo
 * Configurable sounds
 * Translation support
+* Posable statues
 * ???
 
 ## Full Lists
