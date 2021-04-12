@@ -1,0 +1,11 @@
+{
+    "type": "mod",
+    "title": "Greek",
+    "tags": ["building", "decorative"],
+    "license": "MIT",
+    "media_license": "MIT",
+    "long_description": "",
+    "repo": "https://github.com/GreenXenith/greek",
+    "website": null,
+    "issue_tracker": "https://github.com/GreenXenith/greek/issues"
+}
