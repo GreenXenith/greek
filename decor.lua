@@ -77,13 +77,11 @@ minetest.register_craft({
 -- Acroterions
 minetest.register_node("greek:acroterion", {
 	description	= "Marble Acroterion",
-	-- drawtype = "allfaces", -- #9210
-	tiles = {
-		"blank.png", "greek_marble_polished.png",
-		"blank.png", "blank.png",
-		"blank.png", {name = "greek_acroterion.png", backface_culling = false},
-	},
-	use_texture_alpha = true,
+    drawtype = "mesh",
+    mesh = "greek_acroterion.obj",
+    tiles = {"greek_acroterion.png", "blank.png"},
+    paramtype = "light",
+    sunlight_propagates = true,
 	paramtype2 = "facedir",
 	groups = greek.marble_groups,
 	sounds = greek.marble_sounds,
@@ -106,13 +104,11 @@ minetest.register_craft({
 
 minetest.register_node("greek:acroterion_corner", {
 	description	= "Marble Acroterion Corner",
-	-- drawtype = "allfaces", -- #9210
-	tiles = {
-		"blank.png", "greek_marble_polished.png",
-		"blank.png", {name = "greek_acroterion_corner.png^[transformFX", backface_culling = false},
-		"blank.png", {name = "greek_acroterion_corner.png", backface_culling = false},
-	},
-	use_texture_alpha = true,
+    drawtype = "mesh",
+    mesh = "greek_acroterion.obj",
+    tiles = {"greek_acroterion_corner.png", "greek_acroterion_corner.png^[transformFX"},
+    paramtype = "light",
+    sunlight_propagates = true,
 	paramtype2 = "facedir",
 	groups = greek.marble_groups,
 	sounds = greek.marble_sounds,
