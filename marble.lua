@@ -101,6 +101,15 @@ for _, head in pairs(pillar_heads) do
 	})
 end
 
+-- Ionic pillar head has some special side tiles
+minetest.override_item("greek:marble_pillar_head_ionic", {
+    tiles = {
+        "greek_marble_pillar_top.png", "greek_marble_pillar_top.png",
+        "greek_marble_pillar_head_ionic_side.png", "greek_marble_pillar_head_ionic_side.png",
+        "greek_marble_pillar_head_ionic.png", "greek_marble_pillar_head_ionic.png",
+    },
+})
+
 greek.register_craftring("greek:marble_pillar_head_%s", pillar_heads)
 greek.register_craftring("greek:marble_pillar_base_%s", pillar_heads)
 
