@@ -42,6 +42,7 @@ Configurable item types:
 * Lock: Used to craft locked doors.
 
 Other settings:
+* Stairs in creative inventory
 * Maximum vase capacity
 * Snuff fire bowls on dig
 * Enable `greeknodes` aliases

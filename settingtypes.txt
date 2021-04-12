@@ -1,3 +1,6 @@
+#    Toggles showing stair nodes in the creative inventory.
+greek.show_stairs_in_creative (Show stairs in creative inventory) bool false
+
 #    Comma-separated list of items that can be used as marble.
 #    Order this list by priority (descending) for greeknodes marble aliasing.
 greek.marble (Marble item list) string building_blocks:Marble,darkage:marble,technic:marble

@@ -138,6 +138,8 @@ return function(node, definition, craftitem)
         def.paramtype = "light"
         def.sunlight_propagates = definition.sunlight_propagates ~= false
         def.paramtype2 = definition.paramtype2:find("color") and "colorfacedir" or "facedir"
+        def.groups = def.groups or {}
+        def.groups.not_in_creative_inventory = greek.settings_get("show_stairs_in_creative") and 0 or 1
         def.node_box = {
             type = "fixed",
             fixed = data.node_box
