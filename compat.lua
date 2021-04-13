@@ -40,7 +40,8 @@ else
                 return minetest.register_alias("greeknodes:marble", item)
             end
         end
-        error("[greek] No valid marble found to alias 'greeknodes:marble' to. Please check your configuration and loaded mods.")
+        error("\n[greek] Compatibility mode is enabled but no valid marble was found to alias 'greeknodes:marble'." ..
+              "\nPlease give greek.marble a valid marble item or disable compatibility mode (greek.greeknodes_aliases = false).\n")
     end)
 end
 
