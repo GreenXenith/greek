@@ -199,7 +199,7 @@ for type, data in pairs(types) do
             overlay_tiles = {tile, tile .. "^[transformFX", tile, tile .. "^[transformFY", tile .. "^[transformFX",  tile .. "^[transformR180"},
             paramtype2 = "colorfacedir",
             palette = "greek_marble_painted_palette.png",
-            color = palette[0], -- This is used for inventory color
+            --color = palette[0], -- This is used for inventory color
             use_texture_alpha = true,
             groups = greek.marble_groups,
             sounds = greek.marble_sounds,
@@ -208,7 +208,7 @@ for type, data in pairs(types) do
 
         for dye, color in pairs(dyes) do
             minetest.register_craft({
-                output = minetest.itemstring_with_color(name, palette[color]),
+                output = minetest.itemstring_with_palette(name, color*32),
                 recipe = {name, dye},
                 replacements = {{dye, dye}},
                 type = "shapeless",
@@ -219,19 +219,22 @@ for type, data in pairs(types) do
     greek.register_craftring("greek:marble_painted_" .. type .. "_%s", total)
 
     -- Fill recipe template with items
-    local items = {[0] = "greek:marble_polished", "group:dye"}
-    for _, recipe in pairs(data[2]) do
-        local filled = {}
-        for row in pairs(recipe) do
-            filled[row] = {}
-            for col in pairs(recipe[row]) do
-                filled[row][col] = items[recipe[row][col]]
+    for dye, color in pairs(dyes) do
+        local name = ("greek:marble_painted_%s_1 4"):format(type)
+        local items = {[0] = "greek:marble_polished", dye}
+        for _, recipe in pairs(data[2]) do
+            local filled = {}
+            for row in pairs(recipe) do
+                filled[row] = {}
+                for col in pairs(recipe[row]) do
+                    filled[row][col] = items[recipe[row][col]]
+                end
             end
-        end
 
-        minetest.register_craft({
-            output = ("greek:marble_painted_%s_1 4"):format(type),
-            recipe = filled,
-        })
+            minetest.register_craft({
+                output = minetest.itemstring_with_palette(name, color*32),
+                recipe = filled,
+            })
+        end
     end
 end
