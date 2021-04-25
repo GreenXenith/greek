@@ -176,12 +176,18 @@ local types = {
 -- Palette colors and corresponding dyes
 local palette = {[0] = "#0058af", "#ffdf7e", "#040404", "#fd294d", "#fa8a2d", "#067f23", "#8f54f5", "#f39ae4"}
 local dyes = {["dye:blue"] = 0, ["dye:yellow"] = 1, ["dye:black"] = 2, ["dye:red"] = 3, ["dye:orange"] = 4, ["dye:green"] = 5, ["dye:violet"] = 6, ["dye:pink"] = 7}
+local consume_dye = greek.settings_get("consuming_dye")
 
 local dye_punch = function(pos, node, puncher, pointed)
     if not minetest.is_protected(pos, puncher:get_player_name()) then
         local stack = puncher:get_wielded_item():get_name()
         if dyes[stack] then
             minetest.swap_node(pos, {name = node.name, param2 = (dyes[stack] * 32) + (node.param2 % 32)})
+            if consume_dye then
+                local item = puncher:get_wielded_item()
+                item:take_item(1)
+                puncher:set_wielded_item(item)
+            end
         end
     end
     return minetest.node_punch(pos, node, puncher, pointed)
@@ -207,10 +213,14 @@ for type, data in pairs(types) do
         })
 
         for dye, color in pairs(dyes) do
+            local use_replacements = {{dye, dye}}
+            if consume_dye then
+                use_replacements = nil
+            end
             minetest.register_craft({
                 output = minetest.itemstring_with_palette(name, color*32),
                 recipe = {name, dye},
-                replacements = {{dye, dye}},
+                replacements = use_replacements,
                 type = "shapeless",
             })
         end

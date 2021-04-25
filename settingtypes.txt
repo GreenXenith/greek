@@ -5,6 +5,9 @@ greek.show_stairs_in_creative (Show stairs in creative inventory) bool false
 #    Order this list by priority (descending) for greeknodes marble aliasing.
 greek.marble (Marble item list) string building_blocks:Marble,darkage:marble,technic:marble
 
+#    Enable/disable consuming of dye when recoloring.
+greek.consuming_dye (Enable consuming of dye when recoloring.) bool false
+
 #    Comma-separated list of items that can be used as limestone for cement-making.
 greek.limestone (Limestone item list) string default:silver_sandstone,darkage:chalk
 
