@@ -259,7 +259,7 @@ M = greek:marble_polished
 `greek:marble_painted_center_1 4`:  
 ```
 M = greek:marble_polished
-D = dye:blue
+D = dye:*
 +-+-+-+
 |M|D|M|
 +-+-+-+
@@ -272,7 +272,7 @@ D = dye:blue
 `greek:marble_painted_corner_1 4`:  
 ```
 M = greek:marble_polished
-D = dye:blue
+D = dye:*
 +-+-+-+
 |D|M|M|
 +-+-+-+
@@ -286,7 +286,7 @@ D = dye:blue
 `greek:marble_painted_edge_1 4`:  
 ```
 M = greek:marble_polished
-D = dye:blue
+D = dye:*
 +-+-+-+
 |D|M|D|
 +-+-+-+

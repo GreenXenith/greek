@@ -182,7 +182,7 @@ for type, data in pairs(types) do
         local name = ("greek:marble_painted_%s_%s"):format(type, i)
         local tile = ("greek_marble_painted_%s_%s.png"):format(type, i)
 
-        greek.register_node_and_stairs(name, {
+        local registered = greek.register_node_and_stairs(name, {
             description = ("Painted %s Marble %s"):format(type:gsub("^%l", string.upper), i),
             tiles = {{name = "greek_marble_polished.png", color = "white"}},
             overlay_tiles = {tile, tile .. "^[transformFX", tile, tile .. "^[transformFY", tile .. "^[transformFX",  tile .. "^[transformR180"},
@@ -195,32 +195,39 @@ for type, data in pairs(types) do
             on_punch = greek.dye_punch(dyes),
         })
 
-        for dye, color in pairs(dyes) do
-            minetest.register_craft({
-                output = minetest.itemstring_with_palette(name, color * 32),
-                recipe = {name, dye},
-                replacements = {{dye, dye}},
-                type = "shapeless",
-            })
+        -- Recipes for coloring tiles
+        for _, item in pairs(registered) do
+            for dye, color in pairs(dyes) do
+                minetest.register_craft({
+                    output = minetest.itemstring_with_palette(item, color * 32),
+                    recipe = {item, dye},
+                    replacements = {{dye, dye}},
+                    type = "shapeless",
+                })
+            end
         end
     end
 
     greek.register_craftring("greek:marble_painted_" .. type .. "_%s", total)
 
-    -- Fill recipe template with items
-    local items = {[0] = "greek:marble_polished", "group:dye"}
-    for _, recipe in pairs(data[2]) do
-        local filled = {}
-        for row in pairs(recipe) do
-            filled[row] = {}
-            for col in pairs(recipe[row]) do
-                filled[row][col] = items[recipe[row][col]]
+    -- Use specific dye to craft colored tile
+    -- Is it possible to have a fallback group:dye recipe to output black? (mixed dyes)
+    for dye, color in pairs(dyes) do
+        -- Fill recipe template with items
+        local items = {[0] = "greek:marble_polished", dye}
+        for _, recipe in pairs(data[2]) do
+            local filled = {}
+            for row in pairs(recipe) do
+                filled[row] = {}
+                for col in pairs(recipe[row]) do
+                    filled[row][col] = items[recipe[row][col]]
+                end
             end
-        end
 
-        minetest.register_craft({
-            output = ("greek:marble_painted_%s_1 4"):format(type),
-            recipe = filled,
-        })
+            minetest.register_craft({
+                output = minetest.itemstring_with_palette(("greek:marble_painted_%s_1 4"):format(type), color * 32),
+                recipe = filled,
+            })
+        end
     end
 end

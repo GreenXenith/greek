@@ -129,6 +129,7 @@ local stairdefs = {
 }
 
 return function(node, definition, craftitem)
+    local registered = {}
     for shape, data in pairs(stairdefs) do
         local itemname = node:gsub(":", ":" .. shape .. "_")
         local def = table.copy(definition)
@@ -148,6 +149,7 @@ return function(node, definition, craftitem)
 
         minetest.register_node(itemname, def)
         minetest.register_alias((itemname:gsub("^.+:", "stairs:")), itemname)
+        registered[#registered + 1] = itemname
 
         if craftitem and data.recipes and data.craft_total then
             local items = {[0] = "", craftitem}
@@ -186,4 +188,5 @@ return function(node, definition, craftitem)
             })
         end
     end
+    return registered
 end

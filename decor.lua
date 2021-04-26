@@ -167,7 +167,7 @@ end
 -- Palette colors and corresponding dyes
 local dyes = {["dye:white"] = 0, ["dye:red"] = 1, ["dye:orange"] = 2, ["dye:yellow"] = 3, ["dye:green"] = 4, ["dye:blue"] = 5, ["dye:violet"] = 6, ["dye:black"] = 7}
 
-greek.register_node_and_stairs("greek:render", {
+local registered_render = greek.register_node_and_stairs("greek:render", {
     description = "Render",
     tiles = {"greek_render.png"},
     paramtype2 = "color",
@@ -184,13 +184,16 @@ minetest.register_craft({
     type = "shapeless",
 })
 
-for dye, color in pairs(dyes) do
-    minetest.register_craft({
-        output = minetest.itemstring_with_palette("greek:render", color * 32),
-        recipe = {"greek:render", dye},
-        replacements = {{dye, dye}},
-        type = "shapeless",
-    })
+-- Recipes for coloring render
+for _, item in pairs(registered_render) do
+    for dye, color in pairs(dyes) do
+        minetest.register_craft({
+            output = minetest.itemstring_with_palette(item, color * 32),
+            recipe = {item, dye},
+            replacements = {{dye, dye}},
+            type = "shapeless",
+        })
+    end
 end
 
 -- Misc

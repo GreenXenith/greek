@@ -44,7 +44,7 @@ end
 local register_stairs = include("stairs.lua")
 function greek.register_node_and_stairs(name, definition)
     minetest.register_node(name, definition)
-    register_stairs(name, definition, name)
+    return {name, unpack(register_stairs(name, definition, name))}
 end
 
 -- Add custom group to item
