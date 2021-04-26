@@ -174,15 +174,7 @@ greek.register_node_and_stairs("greek:render", {
     palette = "greek_render_palette.png",
     groups = {cracky = 3},
     sounds = greek.marble_sounds,
-    on_punch = function(pos, node, puncher, pointed)
-        if not minetest.is_protected(pos, puncher:get_player_name()) then
-            local stack = puncher:get_wielded_item():get_name()
-            if dyes[stack] then
-                minetest.swap_node(pos, {name = node.name, param2 = (dyes[stack] * 32) + (node.param2 % 32)})
-            end
-        end
-        return minetest.node_punch(pos, node, puncher, pointed)
-    end,
+    on_punch = greek.dye_punch(dyes),
 })
 
 minetest.register_craft({

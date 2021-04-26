@@ -110,6 +110,20 @@ function greek.register_craftring(item, total_or_table)
     end
 end
 
+-- Colorize node on punch
+-- `dyes` is a map of palette indexes indexed by dye itemstring
+function greek.dye_punch(dyes)
+    return function(pos, node, puncher, pointed)
+        if not minetest.is_protected(pos, puncher:get_player_name()) then
+            local stack = puncher:get_wielded_item():get_name()
+            if dyes[stack] then
+                minetest.swap_node(pos, {name = node.name, param2 = (dyes[stack] * 32) + (node.param2 % 32)})
+            end
+        end
+        return minetest.node_punch(pos, node, puncher, pointed)
+    end
+end
+
 include("marble.lua")
 include("decor.lua")
 include("doors.lua")

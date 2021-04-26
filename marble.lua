@@ -176,16 +176,6 @@ local types = {
 -- Palette colors and corresponding dyes
 local dyes = {["dye:blue"] = 0, ["dye:yellow"] = 1, ["dye:black"] = 2, ["dye:red"] = 3, ["dye:orange"] = 4, ["dye:green"] = 5, ["dye:violet"] = 6, ["dye:pink"] = 7}
 
-local dye_punch = function(pos, node, puncher, pointed)
-    if not minetest.is_protected(pos, puncher:get_player_name()) then
-        local stack = puncher:get_wielded_item():get_name()
-        if dyes[stack] then
-            minetest.swap_node(pos, {name = node.name, param2 = (dyes[stack] * 32) + (node.param2 % 32)})
-        end
-    end
-    return minetest.node_punch(pos, node, puncher, pointed)
-end
-
 for type, data in pairs(types) do
     local total = data[1]
     for i = 1, total do
@@ -202,7 +192,7 @@ for type, data in pairs(types) do
             use_texture_alpha = true,
             groups = greek.marble_groups,
             sounds = greek.marble_sounds,
-            on_punch = dye_punch,
+            on_punch = greek.dye_punch(dyes),
         })
 
         for dye, color in pairs(dyes) do
