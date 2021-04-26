@@ -156,7 +156,6 @@ minetest.register_craft({
 })
 
 -- Palette colors and corresponding dyes
-local palette = {[0] = "#ffffff", "#e63845", "#ff6f45", "#f6dd4a", "#83d753", "#526ff0", "#d07fef", "#2b2b2b"}
 local dyes = {["dye:white"] = 0, ["dye:red"] = 1, ["dye:orange"] = 2, ["dye:yellow"] = 3, ["dye:green"] = 4, ["dye:blue"] = 5, ["dye:violet"] = 6, ["dye:black"] = 7}
 
 greek.register_node_and_stairs("greek:render", {
@@ -186,7 +185,7 @@ minetest.register_craft({
 
 for dye, color in pairs(dyes) do
     minetest.register_craft({
-        output = minetest.itemstring_with_color("greek:render", palette[color]),
+        output = minetest.itemstring_with_palette("greek:render", color * 32),
         recipe = {"greek:render", dye},
         replacements = {{dye, dye}},
         type = "shapeless",

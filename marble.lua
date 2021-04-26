@@ -174,7 +174,6 @@ local types = {
 }
 
 -- Palette colors and corresponding dyes
-local palette = {[0] = "#0058af", "#ffdf7e", "#040404", "#fd294d", "#fa8a2d", "#067f23", "#8f54f5", "#f39ae4"}
 local dyes = {["dye:blue"] = 0, ["dye:yellow"] = 1, ["dye:black"] = 2, ["dye:red"] = 3, ["dye:orange"] = 4, ["dye:green"] = 5, ["dye:violet"] = 6, ["dye:pink"] = 7}
 
 local dye_punch = function(pos, node, puncher, pointed)
@@ -199,7 +198,7 @@ for type, data in pairs(types) do
             overlay_tiles = {tile, tile .. "^[transformFX", tile, tile .. "^[transformFY", tile .. "^[transformFX",  tile .. "^[transformR180"},
             paramtype2 = "colorfacedir",
             palette = "greek_marble_painted_palette.png",
-            color = palette[0], -- This is used for inventory color
+            color = "#0058af", -- This is used for inventory color
             use_texture_alpha = true,
             groups = greek.marble_groups,
             sounds = greek.marble_sounds,
@@ -208,7 +207,7 @@ for type, data in pairs(types) do
 
         for dye, color in pairs(dyes) do
             minetest.register_craft({
-                output = minetest.itemstring_with_color(name, palette[color]),
+                output = minetest.itemstring_with_palette(name, color * 32),
                 recipe = {name, dye},
                 replacements = {{dye, dye}},
                 type = "shapeless",
