@@ -30,12 +30,13 @@ All listed dependencies are only defaults and are configurable unless noted othe
 * `basic_materials`: Provides padlock for locked doors.
 
 ## Configuration
-All craftitems are configurable via the `minetest.conf` using settings listed in [settingtypes.txt](settingtypes.txt). Craftitem settings use a comma-deliminated list of itemstrings. Each item listed, if available, will be used as a valid item in crafting recipes using that item type.  
+All craftitems are configurable via the `minetest.conf` using settings listed in [settingtypes.txt](settingtypes.txt). Craftitem settings use a comma-deliminated list of itemstrings. Each item listed, if available, will be used as a valid item in crafting recipes using that item type. Some `greek` implementations are included by default, but may be disabled by removing the items from their lists.  
 
 Configurable item types:
 * Marble: Used to craft polished marble. Polished marble is in turn used to craft all other marble-related items.   
   NOTE: If [greeknodes compaitibility](#compatibility) is enabled, at least one registered item must be in this list.
 * Limestone: Used to craft cement for render.
+* Cement: Used to craft render.
 * Gold block: Used to craft gilded gold.
 * Clay: Used to craft red clay.
 * Blue wood: Used to craft doors and shutters.

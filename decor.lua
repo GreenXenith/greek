@@ -139,21 +139,30 @@ minetest.register_craft({
 })
 
 -- Render
-minetest.register_craftitem("greek:cement", {
-    description = "Cement",
-    inventory_image = "greek_cement.png",
-})
+for _, item in pairs(greek.settings_list("cement")) do
+    -- Only bother registering our own cement if it is used
+    if item == "greek:cement" then
+        minetest.register_craftitem("greek:cement", {
+            description = "Cement",
+            inventory_image = "greek_cement.png",
+            groups = {["greek:cement"] = 1},
+        })
 
-for _, item in pairs(greek.settings_list("limestone")) do
-    greek.add_group(item, "limestone")
+        -- Limestone is only used for crafting this specific cement (realistic)
+        for _, craftitem in pairs(greek.settings_list("limestone")) do
+            greek.add_group(craftitem, "limestone")
+        end
+
+        minetest.register_craft({
+            output = "greek:cement",
+            recipe = "group:greek:limestone",
+            type = "cooking",
+            cooktime = 7,
+        })
+    end
+
+    greek.add_group(item, "cement")
 end
-
-minetest.register_craft({
-    output = "greek:cement",
-    recipe = "group:greek:limestone",
-    type = "cooking",
-    cooktime = 7,
-})
 
 -- Palette colors and corresponding dyes
 local dyes = {["dye:white"] = 0, ["dye:red"] = 1, ["dye:orange"] = 2, ["dye:yellow"] = 3, ["dye:green"] = 4, ["dye:blue"] = 5, ["dye:violet"] = 6, ["dye:black"] = 7}
@@ -178,7 +187,7 @@ greek.register_node_and_stairs("greek:render", {
 
 minetest.register_craft({
     output = "greek:render 2",
-    recipe = {"greek:cement", "group:sand", "group:water_bucket"},
+    recipe = {"group:greek:cement", "group:sand", "group:water_bucket"},
     replacements = {{"group:water_bucket", "bucket:bucket_empty"}},
     type = "shapeless",
 })

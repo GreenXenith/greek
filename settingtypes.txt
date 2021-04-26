@@ -8,6 +8,9 @@ greek.marble (Marble item list) string building_blocks:Marble,darkage:marble,tec
 #    Comma-separated list of items that can be used as limestone for cement-making.
 greek.limestone (Limestone item list) string default:silver_sandstone,darkage:chalk
 
+#    Comma-separated list of items that can be used as cement for render.
+greek.cement (Cement item list) string greek:cement
+
 #    Comma-separated list of items that can be used as gold blocks for gilded gold.
 greek.gold_block (Gold Block item list) string default:goldblock
 
