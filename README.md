@@ -44,6 +44,7 @@ Configurable item types:
 
 Other settings:
 * Stairs in creative inventory
+* Dye consumption upon coloring
 * Maximum vase capacity
 * Snuff fire bowls on dig
 * Enable `greeknodes` aliases
@@ -57,7 +58,7 @@ This mod is the successor to my old `greeknodes` mod. Aliases are registered by 
 
 ## Implementations
 ### Coloring
-Some nodes (render, painted tiles) have 8 available colors variants. They can be obtained by combining them with a dye (dye is not consumed) or punching a colorable node with a dye.
+Some nodes (render, painted tiles) have 8 available colors variants. They can be obtained by combining them with a dye (dye is consumed by default) or punching a colorable node with a dye.
 
 ### Stairs
 I need to be able to use dye punch-coloring on certain stairs (painted tile, render). Default stairs has two issues:

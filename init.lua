@@ -118,6 +118,11 @@ function greek.dye_punch(dyes)
             local stack = puncher:get_wielded_item():get_name()
             if dyes[stack] then
                 minetest.swap_node(pos, {name = node.name, param2 = (dyes[stack] * 32) + (node.param2 % 32)})
+                if greek.settings_get("consume_dye") then
+                    local wielded = puncher:get_wielded_item()
+                    wielded:take_item()
+                    puncher:set_wielded_item(wielded)
+                end
             end
         end
         return minetest.node_punch(pos, node, puncher, pointed)

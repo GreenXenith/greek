@@ -201,7 +201,7 @@ for type, data in pairs(types) do
                 minetest.register_craft({
                     output = minetest.itemstring_with_palette(item, color * 32),
                     recipe = {item, dye},
-                    replacements = {{dye, dye}},
+                    replacements = not greek.settings_get("consume_dye") and {{dye, dye}} or nil,
                     type = "shapeless",
                 })
             end
