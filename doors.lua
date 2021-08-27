@@ -26,16 +26,16 @@ end
 
 minetest.register_node("greek:door_blank", {
     drawtype = "airlike",
-	paramtype = "light",
-	sunlight_propagates = true,
+    paramtype = "light",
+    sunlight_propagates = true,
     paramtype2 = "facedir",
-	walkable = true,
-	pointable = false,
-	diggable = false,
-	buildable_to = false,
-	floodable = false,
-	drop = "",
-	groups = {not_in_creative_inventory = 1},
+    walkable = true,
+    pointable = false,
+    diggable = false,
+    buildable_to = false,
+    floodable = false,
+    drop = "",
+    groups = {not_in_creative_inventory = 1},
     collision_box = {
         type = "fixed",
         fixed = {-0.5, -0.5, -0.5, 0.5, 0.5, -6 / 16},
@@ -112,10 +112,10 @@ for i = 1, door_count do
         on_blast = function(pos)
             if minetest.get_meta(pos):get_string("owner") ~= "" then return end
             local name = minetest.get_node(pos).name
-			minetest.remove_node(pos)
-			minetest.remove_node({x = pos.x, y = pos.y + 1, z = pos.z})
-			return {name}
-		end,
+            minetest.remove_node(pos)
+            minetest.remove_node({x = pos.x, y = pos.y + 1, z = pos.z})
+            return {name}
+        end,
     }
 
     do -- Register normal version
@@ -123,37 +123,37 @@ for i = 1, door_count do
 
         -- Check for obstructions and place invisible node
         defcopy.on_place = function(itemstack, placer, pointed)
-			local pos
+            local pos
 
-			if pointed.type ~= "node" then return itemstack end
+            if pointed.type ~= "node" then return itemstack end
 
-			local node = minetest.get_node(pointed.under)
-			local pdef = minetest.registered_nodes[node.name]
+            local node = minetest.get_node(pointed.under)
+            local pdef = minetest.registered_nodes[node.name]
 
             if pdef and pdef.on_rightclick and not placer:get_player_control().sneak then
                 return pdef.on_rightclick(pointed.under, node, placer, itemstack, pointed)
             end
 
-			if pdef and pdef.buildable_to then
-				pos = pointed.under
-			else
-				pos = pointed.above
-				node = minetest.get_node(pos)
-				pdef = minetest.registered_nodes[node.name]
-				if not pdef or not pdef.buildable_to then return itemstack end
-			end
+            if pdef and pdef.buildable_to then
+                pos = pointed.under
+            else
+                pos = pointed.above
+                node = minetest.get_node(pos)
+                pdef = minetest.registered_nodes[node.name]
+                if not pdef or not pdef.buildable_to then return itemstack end
+            end
 
-			local above = {x = pos.x, y = pos.y + 1, z = pos.z}
-			local top_node = minetest.get_node_or_nil(above)
-			local topdef = top_node and minetest.registered_nodes[top_node.name]
+            local above = {x = pos.x, y = pos.y + 1, z = pos.z}
+            local top_node = minetest.get_node_or_nil(above)
+            local topdef = top_node and minetest.registered_nodes[top_node.name]
 
-			if not topdef or not topdef.buildable_to then return itemstack end
+            if not topdef or not topdef.buildable_to then return itemstack end
 
-			local pn = placer and placer:get_player_name() or ""
-			if minetest.is_protected(pos, pn) or minetest.is_protected(above, pn) then return itemstack end
+            local pn = placer and placer:get_player_name() or ""
+            if minetest.is_protected(pos, pn) or minetest.is_protected(above, pn) then return itemstack end
 
-			return minetest.item_place_node(itemstack, placer, pointed)
-		end
+            return minetest.item_place_node(itemstack, placer, pointed)
+        end
 
         -- Set metadata and rotate door
         defcopy.after_place_node = function(pos, placer)

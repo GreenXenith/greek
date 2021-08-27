@@ -3,30 +3,30 @@
 
 -- Rotation functions taken from minetest_game/stairs 2021/04/21
 local function rotate_and_place(itemstack, placer, pointed_thing)
-	local p0 = pointed_thing.under
-	local p1 = pointed_thing.above
-	local param2 = 0
+    local p0 = pointed_thing.under
+    local p1 = pointed_thing.above
+    local param2 = 0
 
-	if placer then
-		local placer_pos = placer:get_pos()
-		if placer_pos then
-			param2 = minetest.dir_to_facedir(vector.subtract(p1, placer_pos))
-		end
+    if placer then
+        local placer_pos = placer:get_pos()
+        if placer_pos then
+            param2 = minetest.dir_to_facedir(vector.subtract(p1, placer_pos))
+        end
 
-		local finepos = minetest.pointed_thing_to_face_pos(placer, pointed_thing)
-		local fpos = finepos.y % 1
+        local finepos = minetest.pointed_thing_to_face_pos(placer, pointed_thing)
+        local fpos = finepos.y % 1
 
-		if p0.y - 1 == p1.y or (fpos > 0 and fpos < 0.5)
-				or (fpos < -0.5 and fpos > -0.999999999) then
-			param2 = param2 + 20
-			if param2 == 21 then
-				param2 = 23
-			elseif param2 == 23 then
-				param2 = 21
-			end
-		end
-	end
-	return minetest.item_place(itemstack, placer, pointed_thing, param2)
+        if p0.y - 1 == p1.y or (fpos > 0 and fpos < 0.5)
+                or (fpos < -0.5 and fpos > -0.999999999) then
+            param2 = param2 + 20
+            if param2 == 21 then
+                param2 = 23
+            elseif param2 == 23 then
+                param2 = 21
+            end
+        end
+    end
+    return minetest.item_place(itemstack, placer, pointed_thing, param2)
 end
 
 local function slab_place(itemstack, placer, pointed_thing)

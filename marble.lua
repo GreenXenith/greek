@@ -4,10 +4,10 @@ greek.marble_groups = {cracky = 2}
 greek.marble_sounds = greek.default_sounds("node_sound_stone_defaults")
 
 greek.register_node_and_stairs("greek:marble_polished", {
-	description = "Polished Marble",
-	tiles = {"greek_marble_polished.png"},
-	groups = greek.marble_groups,
-	sounds = greek.marble_sounds,
+    description = "Polished Marble",
+    tiles = {"greek_marble_polished.png"},
+    groups = greek.marble_groups,
+    sounds = greek.marble_sounds,
 })
 
 for _, item in pairs(greek.settings_list("marble")) do
@@ -24,81 +24,81 @@ minetest.register_craft({
 })
 
 minetest.register_craft({
-	output = "greek:marble_polished",
-	recipe = "greek:marble_cobble",
-	type = "cooking",
-	cooktime = 5,
+    output = "greek:marble_polished",
+    recipe = "greek:marble_cobble",
+    type = "cooking",
+    cooktime = 5,
 })
 
 greek.register_node_and_stairs("greek:marble_polished_block", {
-	description = "Polished Marble Block",
-	tiles = {"greek_marble_polished_block.png"},
-	groups = greek.marble_groups,
-	sounds = greek.marble_sounds,
+    description = "Polished Marble Block",
+    tiles = {"greek_marble_polished_block.png"},
+    groups = greek.marble_groups,
+    sounds = greek.marble_sounds,
 })
 
 minetest.register_craft({
-	output = "greek:marble_polished_block 4",
-	recipe = {
-		{"greek:marble_polished", "greek:marble_polished"},
-		{"greek:marble_polished", "greek:marble_polished"},
-	}
+    output = "greek:marble_polished_block 4",
+    recipe = {
+        {"greek:marble_polished", "greek:marble_polished"},
+        {"greek:marble_polished", "greek:marble_polished"},
+    }
 })
 
 greek.register_node_and_stairs("greek:marble_cobble", {
-	description = "Marble Cobble",
-	tiles = {"greek_marble_cobble.png"},
-	groups = greek.marble_groups,
-	sounds = greek.marble_sounds,
+    description = "Marble Cobble",
+    tiles = {"greek_marble_cobble.png"},
+    groups = greek.marble_groups,
+    sounds = greek.marble_sounds,
 })
 
 minetest.register_craft({
-	output = "greek:marble_cobble 5",
-	recipe = {
-		{"greek:marble_polished", "", "greek:marble_polished"},
-		{"", "greek:marble_polished", ""},
-		{"greek:marble_polished", "", "greek:marble_polished"},
-	},
+    output = "greek:marble_cobble 5",
+    recipe = {
+        {"greek:marble_polished", "", "greek:marble_polished"},
+        {"", "greek:marble_polished", ""},
+        {"greek:marble_polished", "", "greek:marble_polished"},
+    },
 })
 
 -- Marble pillars
 greek.register_node_and_stairs("greek:marble_pillar", {
-	description = "Marble Pillar",
-	tiles = {"greek_marble_pillar_top.png", "greek_marble_pillar_top.png", "greek_marble_pillar_side.png"},
-	paramtype2 = "facedir",
-	groups = greek.marble_groups,
-	sounds = greek.marble_sounds,
-	on_place = minetest.rotate_node,
+    description = "Marble Pillar",
+    tiles = {"greek_marble_pillar_top.png", "greek_marble_pillar_top.png", "greek_marble_pillar_side.png"},
+    paramtype2 = "facedir",
+    groups = greek.marble_groups,
+    sounds = greek.marble_sounds,
+    on_place = minetest.rotate_node,
 })
 
 minetest.register_craft({
-	output = "greek:marble_pillar 2",
-	recipe = {
-		{"greek:marble_polished"},
-		{"greek:marble_polished"},
-	},
+    output = "greek:marble_pillar 2",
+    recipe = {
+        {"greek:marble_polished"},
+        {"greek:marble_polished"},
+    },
 })
 
 local pillar_heads = {"doric", "ionic", "corinthian"}
 
 for _, head in pairs(pillar_heads) do
     minetest.register_node("greek:marble_pillar_head_" .. head, {
-		description = head:gsub("^%l", string.upper) .. " Marble Pillar Head",
-		tiles = {"greek_marble_pillar_top.png", "greek_marble_pillar_top.png", "greek_marble_pillar_head_" .. head .. ".png"},
-		paramtype2 = "facedir",
-		groups = greek.marble_groups,
-		sounds = greek.marble_sounds,
-		on_place = minetest.rotate_node,
-	})
+        description = head:gsub("^%l", string.upper) .. " Marble Pillar Head",
+        tiles = {"greek_marble_pillar_top.png", "greek_marble_pillar_top.png", "greek_marble_pillar_head_" .. head .. ".png"},
+        paramtype2 = "facedir",
+        groups = greek.marble_groups,
+        sounds = greek.marble_sounds,
+        on_place = minetest.rotate_node,
+    })
 
-	minetest.register_node("greek:marble_pillar_base_" .. head, {
-		description = head:gsub("^%l", string.upper)  .. " Marble Pillar Base",
-		tiles = {"greek_marble_pillar_top.png", "greek_marble_pillar_top.png", "greek_marble_pillar_base_" .. head .. ".png"},
-		paramtype2 = "facedir",
-		groups = greek.marble_groups,
-		sounds = greek.marble_sounds,
-		on_place = minetest.rotate_node,
-	})
+    minetest.register_node("greek:marble_pillar_base_" .. head, {
+        description = head:gsub("^%l", string.upper)  .. " Marble Pillar Base",
+        tiles = {"greek_marble_pillar_top.png", "greek_marble_pillar_top.png", "greek_marble_pillar_base_" .. head .. ".png"},
+        paramtype2 = "facedir",
+        groups = greek.marble_groups,
+        sounds = greek.marble_sounds,
+        on_place = minetest.rotate_node,
+    })
 end
 
 -- Ionic pillar head has some special side tiles
@@ -114,42 +114,42 @@ greek.register_craftring("greek:marble_pillar_head_%s", pillar_heads)
 greek.register_craftring("greek:marble_pillar_base_%s", pillar_heads)
 
 minetest.register_craft({
-	output = "greek:marble_pillar_head_" .. pillar_heads[1] .. " 4",
-	recipe = {
-		{"greek:marble_pillar", "greek:marble_polished", "greek:marble_pillar"},
-		{"", "greek:marble_pillar", ""},
-	},
+    output = "greek:marble_pillar_head_" .. pillar_heads[1] .. " 4",
+    recipe = {
+        {"greek:marble_pillar", "greek:marble_polished", "greek:marble_pillar"},
+        {"", "greek:marble_pillar", ""},
+    },
 })
 
 minetest.register_craft({
-	output = "greek:marble_pillar_base_" .. pillar_heads[1] .. " 4",
-	recipe = {
-		{"", "greek:marble_pillar", ""},
-		{"greek:marble_pillar", "greek:marble_polished", "greek:marble_pillar"},
-	},
+    output = "greek:marble_pillar_base_" .. pillar_heads[1] .. " 4",
+    recipe = {
+        {"", "greek:marble_pillar", ""},
+        {"greek:marble_pillar", "greek:marble_polished", "greek:marble_pillar"},
+    },
 })
 
 -- Carved marble tiles
 local tile_total = 6
 
 for i = 1, tile_total do
-	greek.register_node_and_stairs("greek:marble_tile_" .. i, {
-		description = "Marble Tile " .. i,
-		tiles = {"greek_marble_tile_" .. i .. ".png"},
-		paramtype2 = "facedir",
-		groups = greek.marble_groups,
-		sounds = greek.marble_sounds,
-	})
+    greek.register_node_and_stairs("greek:marble_tile_" .. i, {
+        description = "Marble Tile " .. i,
+        tiles = {"greek_marble_tile_" .. i .. ".png"},
+        paramtype2 = "facedir",
+        groups = greek.marble_groups,
+        sounds = greek.marble_sounds,
+    })
 end
 
 greek.register_craftring("greek:marble_tile_%s", tile_total)
 
 minetest.register_craft({
-	output = "greek:marble_tile_1 4",
-	recipe = {
-		{"greek:marble_polished_block", "greek:marble_polished_block"},
-		{"greek:marble_polished_block", "greek:marble_polished_block"},
-	}
+    output = "greek:marble_tile_1 4",
+    recipe = {
+        {"greek:marble_polished_block", "greek:marble_polished_block"},
+        {"greek:marble_polished_block", "greek:marble_polished_block"},
+    }
 })
 
 -- Painted marble tiles

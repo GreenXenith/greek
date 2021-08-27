@@ -2,39 +2,39 @@
 
 -- Triglyphs
 greek.register_node_and_stairs("greek:triglyph", {
-	description = "Marble Triglyph",
-	tiles = {"greek_marble_polished.png", "greek_marble_polished.png", "greek_triglyph.png"},
-	paramtype2 = "facedir",
-	groups = greek.marble_groups,
-	sounds = greek.marble_sounds,
+    description = "Marble Triglyph",
+    tiles = {"greek_marble_polished.png", "greek_marble_polished.png", "greek_triglyph.png"},
+    paramtype2 = "facedir",
+    groups = greek.marble_groups,
+    sounds = greek.marble_sounds,
 })
 
 minetest.register_craft({
-	output = "greek:triglyph 4",
-	recipe = {
-		{"greek:marble_polished", "", "greek:marble_polished"},
-		{"greek:marble_polished", "", "greek:marble_polished"},
-	}
+    output = "greek:triglyph 4",
+    recipe = {
+        {"greek:marble_polished", "", "greek:marble_polished"},
+        {"greek:marble_polished", "", "greek:marble_polished"},
+    }
 })
 
 minetest.register_craft({
-	output = "greek:triglyph",
-	recipe = {"greek:triglyph_blue", "dye:white"},
-	type = "shapeless",
+    output = "greek:triglyph",
+    recipe = {"greek:triglyph_blue", "dye:white"},
+    type = "shapeless",
 })
 
 greek.register_node_and_stairs("greek:triglyph_blue", {
-	description = "Blue Marble Triglyph",
-	tiles = {"greek_marble_polished.png^[multiply:#4a797d", "greek_marble_polished.png^[multiply:#4a797d", "greek_triglyph.png^[multiply:#4a797d"},
-	paramtype2 = "facedir",
-	groups = greek.marble_groups,
-	sounds = greek.marble_sounds,
+    description = "Blue Marble Triglyph",
+    tiles = {"greek_marble_polished.png^[multiply:#4a797d", "greek_marble_polished.png^[multiply:#4a797d", "greek_triglyph.png^[multiply:#4a797d"},
+    paramtype2 = "facedir",
+    groups = greek.marble_groups,
+    sounds = greek.marble_sounds,
 })
 
 minetest.register_craft({
-	output = "greek:triglyph_blue",
-	recipe = {"greek:triglyph", "dye:blue"},
-	type = "shapeless",
+    output = "greek:triglyph_blue",
+    recipe = {"greek:triglyph", "dye:blue"},
+    type = "shapeless",
 })
 
 -- Metopes
@@ -54,37 +54,37 @@ local metopes = {
 }
 
 for _, name in pairs(metopes) do
-	minetest.register_node("greek:metope_" .. name, {
-		description = "Metope (" .. (" " .. name):gsub("%W%l", string.upper):sub(2) .. ")",
-		tiles = {
-			"greek_metope_base.png", "greek_metope_base.png",
-			"greek_metope_base.png^greek_metope_" .. name .. ".png^[transformFX", "greek_metope_base.png^greek_metope_" .. name .. ".png^[transformFX",
-			"greek_metope_base.png^greek_metope_" .. name .. ".png", "greek_metope_base.png^greek_metope_" .. name .. ".png"},
-		paramtype2 = "facedir",
-		groups = greek.marble_groups,
-		sounds = greek.marble_sounds,
-	})
+    minetest.register_node("greek:metope_" .. name, {
+        description = "Metope (" .. (" " .. name):gsub("%W%l", string.upper):sub(2) .. ")",
+        tiles = {
+            "greek_metope_base.png", "greek_metope_base.png",
+            "greek_metope_base.png^greek_metope_" .. name .. ".png^[transformFX", "greek_metope_base.png^greek_metope_" .. name .. ".png^[transformFX",
+            "greek_metope_base.png^greek_metope_" .. name .. ".png", "greek_metope_base.png^greek_metope_" .. name .. ".png"},
+        paramtype2 = "facedir",
+        groups = greek.marble_groups,
+        sounds = greek.marble_sounds,
+    })
 end
 
 greek.register_craftring("greek:metope_%s", metopes)
 
 minetest.register_craft({
-	output = "greek:metope_" .. metopes[1] .. " 2",
-	recipe = {"greek:marble_polished", "group:greek:red_clay"},
-	type = "shapeless",
+    output = "greek:metope_" .. metopes[1] .. " 2",
+    recipe = {"greek:marble_polished", "group:greek:red_clay"},
+    type = "shapeless",
 })
 
 -- Acroterions
 minetest.register_node("greek:acroterion", {
-	description	= "Marble Acroterion",
+    description	= "Marble Acroterion",
     drawtype = "mesh",
     mesh = "greek_acroterion.obj",
     tiles = {"greek_acroterion.png", "blank.png"},
     paramtype = "light",
     sunlight_propagates = true,
-	paramtype2 = "facedir",
-	groups = greek.marble_groups,
-	sounds = greek.marble_sounds,
+    paramtype2 = "facedir",
+    groups = greek.marble_groups,
+    sounds = greek.marble_sounds,
 })
 
 minetest.register_craft({
@@ -103,15 +103,15 @@ minetest.register_craft({
 })
 
 minetest.register_node("greek:acroterion_corner", {
-	description	= "Marble Acroterion Corner",
+    description	= "Marble Acroterion Corner",
     drawtype = "mesh",
     mesh = "greek_acroterion.obj",
     tiles = {"greek_acroterion_corner.png", "greek_acroterion_corner.png^[transformFX"},
     paramtype = "light",
     sunlight_propagates = true,
-	paramtype2 = "facedir",
-	groups = greek.marble_groups,
-	sounds = greek.marble_sounds,
+    paramtype2 = "facedir",
+    groups = greek.marble_groups,
+    sounds = greek.marble_sounds,
 })
 
 minetest.register_craft({
@@ -198,10 +198,10 @@ end
 
 -- Misc
 greek.register_node_and_stairs("greek:gilded_gold", {
-	description = "Gilded Gold",
-	tiles = {"greek_gilded_gold.png"},
-	groups = {cracky = 3, oddly_breakable_by_hand = 1},
-	sounds = greek.default_sounds("node_sound_metal_defaults"),
+    description = "Gilded Gold",
+    tiles = {"greek_gilded_gold.png"},
+    groups = {cracky = 3, oddly_breakable_by_hand = 1},
+    sounds = greek.default_sounds("node_sound_metal_defaults"),
 })
 
 for _, item in pairs(greek.settings_list("gold_block")) do
@@ -216,10 +216,10 @@ minetest.register_craft({
 })
 
 greek.register_node_and_stairs("greek:red_clay_fired", {
-	description = "Fired Red Clay",
-	tiles = {"greek_red_clay_fired.png"},
-	groups = {cracky = 3, oddly_breakable_by_hand = 2},
-	sounds = greek.default_sounds("node_sound_stone_defaults"),
+    description = "Fired Red Clay",
+    tiles = {"greek_red_clay_fired.png"},
+    groups = {cracky = 3, oddly_breakable_by_hand = 2},
+    sounds = greek.default_sounds("node_sound_stone_defaults"),
 })
 
 for _, item in pairs(greek.settings_list("red_clay")) do
