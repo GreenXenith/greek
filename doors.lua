@@ -21,7 +21,7 @@ local function toggle_door(pos)
 
     local state = (meta:get_int("state") + 1) % 2
     meta:set_int("state", state)
-    if minetest.get_modpath("doors") then minetest.sound_play("doors_door_" .. ({"close", "open"})[state + 1], pos, true) end
+    if minetest.get_modpath("doors") then minetest.sound_play("doors_door_" .. ({"close", "open"})[state + 1], {pos = pos}, true) end
 end
 
 minetest.register_node("greek:door_blank", {
@@ -300,7 +300,7 @@ for i = 1, shutter_count do
         groups = {choppy = 2, oddly_breakable_by_hand = 2, flammable = 2},
         on_rightclick = function(pos, node)
             minetest.swap_node(pos, {name = "greek:shutters_" .. i .. "_open", param2 = node.param2})
-            if minetest.get_modpath("doors") then minetest.sound_play("doors_door_open", pos, true) end
+            if minetest.get_modpath("doors") then minetest.sound_play("doors_door_open", {pos = pos}, true) end
         end,
     }
 
@@ -312,7 +312,7 @@ for i = 1, shutter_count do
     def.drop = "greek:shutters_" .. i
     def.on_rightclick = function(pos, node)
         minetest.swap_node(pos, {name = "greek:shutters_" .. i, param2 = node.param2})
-        if minetest.get_modpath("doors") then minetest.sound_play("doors_door_close", pos, true) end
+        if minetest.get_modpath("doors") then minetest.sound_play("doors_door_close", {pos = pos}, true) end
     end
 
     minetest.register_node("greek:shutters_" .. i .. "_open", def)
