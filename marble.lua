@@ -189,7 +189,7 @@ for type, data in pairs(types) do
             paramtype2 = "colorfacedir",
             palette = "greek_marble_painted_palette.png",
             color = "#0058af", -- This is used for inventory color
-            use_texture_alpha = true,
+            use_texture_alpha = "blend",
             groups = greek.marble_groups,
             sounds = greek.marble_sounds,
             on_punch = greek.dye_punch(dyes),
