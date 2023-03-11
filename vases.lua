@@ -60,6 +60,8 @@ local function vase_put(pos, _, _, stack)
     local meta = minetest.get_meta(pos)
     local contents = ItemStack(meta:get_string("contents"))
 
+    if not stack then return end
+
     if stack:get_name() ~= "" then
         -- Make a copy of the stack
         local put = ItemStack(get_liquid_or_stack(stack))
