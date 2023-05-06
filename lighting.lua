@@ -16,8 +16,10 @@ minetest.register_node("greek:fire_bowl", {
     sounds = greek.default_sounds("node_sound_glass_defaults"),
     on_place = function(stack, placer, pointed)
         -- If placed against ceiling, set to hanging fire bowl
-        local s, p = minetest.item_place((pointed.under.y > pointed.above.y and stack:replace("greek:fire_bowl_hanging") and stack) or stack, placer, pointed)
-        return s:replace("greek:fire_bowl") and s, p
+        if pointed.under.y > pointed.above.y then stack:set_name("greek:fire_bowl_hanging") end
+        local leftover = minetest.item_place(stack, placer, pointed)
+        leftover:set_name("greek:fire_bowl")
+        return leftover
     end,
     on_punch = function(pos, _, puncher)
         for _, group in pairs({"fire", "igniter", "torch"}) do
@@ -45,8 +47,10 @@ minetest.register_node("greek:fire_bowl_lit", {
     groups = {cracky = 3, oddly_breakable_by_hand = 2, torch = 1},
     sounds = greek.default_sounds("node_sound_glass_defaults"),
     on_place = function(stack, placer, pointed)
-        local s, p = minetest.item_place((pointed.under.y > pointed.above.y and stack:replace("greek:fire_bowl_hanging_lit") and stack) or stack, placer, pointed)
-        return s:replace("greek:fire_bowl_lit") and s, p
+        if pointed.under.y > pointed.above.y then stack:set_name("greek:fire_bowl_hanging_lit") end
+        local leftover = minetest.item_place(stack, placer, pointed)
+        leftover:set_name("greek:fire_bowl_lit")
+        return leftover
     end,
     on_punch = function(pos, _, puncher)
         for _, group in pairs({"water", "liquid", "water_bucket"}) do
