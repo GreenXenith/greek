@@ -143,6 +143,7 @@ for shape, def in pairs(shapes) do
             mesh = "greek_vase_" .. shape .. ".obj",
             tiles = {{name = "greek_" .. name .. ".png", color = "white"}},
             overlay_tiles = {"greek_vase_" .. shape .. "_contents.png"},
+            use_texture_alpha = "clip",
             paramtype = "light",
             sunlight_propagates = true,
             paramtype2 = "colorfacedir",
