@@ -83,6 +83,7 @@ minetest.register_node("greek:acroterion", {
     paramtype = "light",
     sunlight_propagates = true,
     paramtype2 = "facedir",
+    use_texture_alpha = "clip",
     groups = greek.marble_groups,
     sounds = greek.marble_sounds,
 })
@@ -110,6 +111,7 @@ minetest.register_node("greek:acroterion_corner", {
     paramtype = "light",
     sunlight_propagates = true,
     paramtype2 = "facedir",
+    use_texture_alpha = "clip",
     groups = greek.marble_groups,
     sounds = greek.marble_sounds,
 })
@@ -260,6 +262,7 @@ minetest.register_node("greek:chain", {
     mesh = "greek_chain.obj",
     tiles = {{name = "greek_chain.png", backface_culling = false}},
     inventory_image = "greek_chain_inv.png",
+    use_texture_alpha = "clip",
     paramtype2 = "facedir",
     place_param2 = 0,
     paramtype = "light",

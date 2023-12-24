@@ -116,6 +116,7 @@ for i = 1, door_count do
             minetest.remove_node({x = pos.x, y = pos.y + 1, z = pos.z})
             return {name}
         end,
+        use_texture_alpha = door_count == 4 and "clip" or nil, -- Door no. 4 has a transparent texture
     }
 
     do -- Register normal version
@@ -289,6 +290,7 @@ for i = 1, shutter_count do
         paramtype = "light",
         sunlight_propagates = true,
         paramtype2 = "facedir",
+        use_texture_alpha = "clip",
         selection_box = {
             type = "fixed",
             fixed = {-0.5, -0.5, 6 / 16, 0.5, 0.5, 0.5},
