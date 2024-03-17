@@ -209,7 +209,7 @@ G = greek:gilded_gold
 
 `greek:door_1_a 2`:  
 ```
-W = group:greek:blue_wood
+W = greek:blue_wood
 +-+-+
 |W|W|
 +-+-+
@@ -392,7 +392,7 @@ Replacements: (group:water_bucket, bucket:bucket_empty)
 
 `greek:shutters_1 2`:  
 ```
-W = group:greek:blue_wood
+W = greek:blue_wood
 +-+-+-+
 |W| |W|
 +-+-+-+

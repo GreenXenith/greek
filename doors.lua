@@ -256,9 +256,9 @@ end
 minetest.register_craft({
     output = "greek:door_1_a 2",
     recipe = {
-        {"group:greek:blue_wood", "group:greek:blue_wood"},
-        {"group:greek:blue_wood", "group:greek:blue_wood"},
-        {"group:greek:blue_wood", "group:greek:blue_wood"},
+        {"greek:blue_wood", "greek:blue_wood"},
+        {"greek:blue_wood", "greek:blue_wood"},
+        {"greek:blue_wood", "greek:blue_wood"},
     },
 })
 
@@ -325,7 +325,7 @@ greek.register_craftring("greek:shutters_%s", shutter_count)
 minetest.register_craft({
     output = "greek:shutters_1 2",
     recipe = {
-        {"group:greek:blue_wood", "", "group:greek:blue_wood"},
-        {"group:greek:blue_wood", "", "group:greek:blue_wood"},
+        {"greek:blue_wood", "", "greek:blue_wood"},
+        {"greek:blue_wood", "", "greek:blue_wood"},
     },
 })
